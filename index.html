@@ -25,8 +25,9 @@
       const path = sessionStorage.getItem('redirectPath');
       if (path) {
         sessionStorage.removeItem('redirectPath');
-        // Wende den Pfad an, den wir ursprünglich erreichen wollten
         window.history.replaceState(null, '', path);
+        // Manuell neu laden (falls keine Router-Unterstützung)
+        location.reload();
       }
     </script>
     <link rel="stylesheet" crossorigin href="/assets/index-4rSsk0qu.css">
