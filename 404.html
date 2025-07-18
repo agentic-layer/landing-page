@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8" />
+    <title>Seite wird geladen…</title>
     <script>
-      // Leitet zur Hauptseite weiter und gibt die ursprüngliche URL mit
-      const redirectTo = '/' + location.pathname + location.search + location.hash;
-      sessionStorage.redirectTo = redirectTo;
-      window.location.href = '/';
+      // Versuche nur zu handeln, wenn die Seite von GitHub Pages als 404 geladen wurde
+      // und nicht direkt die Startseite ist
+      const path = location.pathname + location.search + location.hash;
+      // Nur fortfahren, wenn der Pfad nicht schon /
+      if (location.pathname !== '/') {
+        // Wir ersetzen die URL im Browser (ohne echten Redirect)
+        history.replaceState(null, '', '/');
+        // Merken, woher wir kamen, damit index.html später reagieren kann
+        sessionStorage.setItem('redirectPath', path);
+      }
     </script>
   </head>
   <body>
