@@ -21,6 +21,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="module" crossorigin src="/assets/index-BYkOsBjh.js"></script>
+    <script>
+      // Speichert die aktuelle URL (Pfad, Query, Hash) im SessionStorage
+      sessionStorage.redirect = location.pathname + location.search + location.hash;
+      // Leitet zurück zur Startseite
+      location.replace('/');
+    </script>
     <link rel="stylesheet" crossorigin href="/assets/index-4rSsk0qu.css">
   </head>
 
